@@ -68,6 +68,24 @@ function convertStringToNumber(stringNum){
     }
 };
 
+//Function #4 - Validates a string to see if it follows the pattern of a phone number
+//validates that the - is located in the proper places, then checks to make sure that the numbers are actually numbers between 0 and 9
+function phoneNumberCheck(phoneString) {
+    
+    for(var i = 0; i < phoneString.length; i++){
+        if (i === 3 || i === 7) {
+            if (phoneString[i] != "-") {
+                return false;
+            }
+        }else if(phoneString[i] < "0" || phoneString[i] > "9"){
+                return false;
+            }
+    }
+    return true;
+};
+    
+
+
 //main code
 //Checking Function #1 meets all parameters
 returnBoolean = urlChecker(inputString1);
@@ -87,3 +105,9 @@ returnNumber = convertStringToNumber(numberString);
 console.log("The number is: " + returnNumber);
 returnNumber = convertStringToNumber(badNumberString);
 console.log("The number is: " + returnNumber);
+
+//checking Function #4 meets all parameters
+returnBoolean = phoneNumberCheck("954-367-6116");
+console.log(returnBoolean);
+returnBoolean = phoneNumberCheck("228-0j00-110");
+console.log(returnBoolean);
