@@ -17,6 +17,8 @@ var numberString = "103";
 var badNumberString = "1o3";
 var inputNumber1 = 0;
 var inputNumber2 = 0;
+var arrayInput = [25, 32, 7, 99, 23, 1];
+var numberInput = 8;
 
 //Function #1 - Check to see if the string is a URL
 //finds the location of the 2nd / and runs a for loop to search through the string, creating a new one with those returned items to be used as a comparison
@@ -83,7 +85,24 @@ function phoneNumberCheck(phoneString) {
     }
     return true;
 };
-    
+
+//Function #5
+//cycles through the array and re-asigns the value of the smallestNum if the index of the array is smaller than the existing smallestNum but still greater than the argument number
+function smallestNumber(arrayInput, numberInput){
+    for(var i = 0; i < arrayInput.length; i++){
+        if (i === 0) {
+            var smallestNum = numberInput;
+            if (smallestNum > arrayInput[i] && arrayInput[i] > numberInput) {
+                smallestNum = arrayInput[i];
+            }
+        }else{
+            if (smallestNum > arrayInput[i] && arrayInput[i] > numberInput) {
+                smallestNum = arrayInput[i];
+            }
+        }
+    }
+    return smallestNum;
+};
 
 
 //main code
@@ -109,5 +128,11 @@ console.log("The number is: " + returnNumber);
 //checking Function #4 meets all parameters
 returnBoolean = phoneNumberCheck("954-367-6116");
 console.log(returnBoolean);
-returnBoolean = phoneNumberCheck("228-0j00-110");
+returnBoolean = phoneNumberCheck("228-0000-110");
 console.log(returnBoolean);
+returnBoolean = phoneNumberCheck("228-000-1j10");
+console.log(returnBoolean);
+
+//checking Function #5 meets all parameters
+returnNumber = smallestNumber(arrayInput, numberInput);
+console.log(returnNumber);
