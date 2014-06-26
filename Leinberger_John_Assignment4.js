@@ -13,6 +13,8 @@ var inputString3 = "https://www.aol.com";
 var oldString = "dog,cat,bird,lizard";
 var oldSeparator = /,/g;
 var newSeparator = "/";
+var numberString = "103";
+var badNumberString = "1o3";
 var inputNumber1 = 0;
 var inputNumber2 = 0;
 
@@ -42,6 +44,23 @@ function stringSeparatorSwap(originalString, originalSeparator, newSeparator) {
     
     return updatedString;
 };
+
+//Function #3 - Convert a string to a number, validate that the string is a number
+//compares the parsed number to the string, if they match that means it was successfully parsed and is a number, otherwise it is not a number
+function convertStringToNumber(stringNum){
+    //local variables
+    var isNotNum = "Not A Number";
+    var number = 0;
+
+    number = parseInt(stringNum);
+        
+    if (number == stringNum) {
+        return number;
+    }else{
+        return isNotNum;
+    }
+};
+
 //main code
 //Checking Function #1 meets all parameters
 returnBoolean = urlChecker(inputString1);
@@ -55,3 +74,9 @@ console.log("It is " + returnBoolean + " that " + inputString3 + " is a correct 
 returnString = stringSeparatorSwap(oldString, oldSeparator, newSeparator);
 console.log("The old string was " + oldString);
 console.log("The updated string is " + returnString);
+
+//checking Function #3 meets all parameters
+returnNumber = convertStringToNumber(numberString);
+console.log("The number is: " + returnNumber);
+returnNumber = convertStringToNumber(badNumberString);
+console.log("The number is: " + returnNumber);
