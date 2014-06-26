@@ -11,7 +11,7 @@ var inputString1 = "htt://www.aol.com";
 var inputString2 = "http://www.aol.com";
 var inputString3 = "https://www.aol.com";
 var oldString = "dog,cat,bird,lizard";
-var oldSeparator = /,/g;
+var oldSeparator = ",";
 var newSeparator = "/";
 var numberString = "103";
 var badNumberString = "1o3";
@@ -37,11 +37,18 @@ function urlChecker(inputString){
 };
 
 //Function #2 - Replace the separator in a string
-//globally replaces the original separator with a new one and returns the updated string
+//goes through a string and creates a new one, replacing the desired separator with the new separator
 function stringSeparatorSwap(originalString, originalSeparator, newSeparator) {
     
-    var updatedString = originalString.replace(originalSeparator, newSeparator);
+    var updatedString = "";
     
+    for(var i = 0; i < originalString.length; i++){
+        if (originalString[i] == originalSeparator) {
+            updatedString = updatedString + newSeparator;
+        }else{
+            updatedString = updatedString + originalString[i];
+        }
+    }
     return updatedString;
 };
 
