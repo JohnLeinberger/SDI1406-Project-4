@@ -123,7 +123,7 @@ function arraySum(mixedArray){
 };
 
 
-//main code
+//main code for checking functions
 //Checking Function #1 meets all parameters
 returnBoolean = urlChecker(inputString1);
 console.log("It is " + returnBoolean + " that " + inputString1 + " is a correct URL");
