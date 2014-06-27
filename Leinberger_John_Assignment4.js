@@ -15,10 +15,9 @@ var oldSeparator = ",";
 var newSeparator = "/";
 var numberString = "103";
 var badNumberString = "1o3";
-var inputNumber1 = 0;
-var inputNumber2 = 0;
 var arrayInput = [25, 32, 7, 99, 23, 1];
 var numberInput = 8;
+var mixedArray = [22,"no","2",50];
 
 //Function #1 - Check to see if the string is a URL
 //finds the location of the 2nd / and runs a for loop to search through the string, creating a new one with those returned items to be used as a comparison
@@ -86,7 +85,7 @@ function phoneNumberCheck(phoneString) {
     return true;
 };
 
-//Function #5
+//Function #5 - Find the smallest value in an array that is greater than a given number
 //cycles through the array and re-asigns the value of the smallestNum if the index of the array is smaller than the existing smallestNum but still greater than the argument number
 function smallestNumber(arrayInput, numberInput){
     for(var i = 0; i < arrayInput.length; i++){
@@ -102,6 +101,25 @@ function smallestNumber(arrayInput, numberInput){
         }
     }
     return smallestNum;
+};
+
+//Function #6 - Find the total value of just the numbers in an array and return it
+//uses the typeof function to check if the index of the array is a string, if its a string then it assigns that value as 0 and continues through the loop
+function arraySum(mixedArray){
+    
+    var itemHolder = 0;
+    var sumOfArray = 0;
+    var numberCheck = "";
+    
+    for(var i = 0; i < mixedArray.length; i++){
+        itemHolder = mixedArray[i]
+        numberCheck = typeof(itemHolder);
+        if (numberCheck == "string") {
+            itemHolder = 0;
+        }
+        sumOfArray = sumOfArray + itemHolder;
+    }
+    return sumOfArray;
 };
 
 
@@ -135,4 +153,8 @@ console.log(returnBoolean);
 
 //checking Function #5 meets all parameters
 returnNumber = smallestNumber(arrayInput, numberInput);
+console.log(returnNumber);
+
+//checking Function #6 meets all parameters
+returnNumber = arraySum(mixedArray);
 console.log(returnNumber);
